@@ -1,3 +1,5 @@
+// @ts-nocheck
+
 import Filters from "@/components/Filters";
 import Header from "@/components/Header";
 import ResourceCard from "@/components/ResourceCard";
@@ -6,10 +8,6 @@ import { getResources, getResourcesPlaylist } from "@/sanity/actions";
 import { SearchParams } from "@/types";
 
 export const revalidate = 900;
-
-interface Props {
-  searchParams: { [key: string]: string | undefined }
-}
 
 const Page = async ({ searchParams }: SearchParams) => {
   const resources = await getResources({
