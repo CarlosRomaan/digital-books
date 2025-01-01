@@ -9,10 +9,7 @@ import { SearchParams } from "@/types";
 
 export const revalidate = 900;
 
-//const Page = async ({ searchParams }: SearchParams) => {
-const Page = async (props: any) => {
-  const { searchParams } = await props;
-
+const Page = async ({ searchParams }: SearchParams) => {
   const resources = await getResources({
     query: searchParams?.query || "",
     category: searchParams?.category || "",
