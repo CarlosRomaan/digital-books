@@ -10,10 +10,9 @@ import { SearchParams } from "@/types";
 export const revalidate = 900;
 
 //const Page = async ({ searchParams }: SearchParams) => {
-const Page = async (props: { children: React.ReactNode; params: Promise<{ id: string }>}) => {
-  const { children, params } = props;
-  const searchParams = await props.params;
-  
+const Page = async (props: { params: SearchParams }) => {
+  const { searchParams } = await props.params;
+
   const resources = await getResources({
     query: searchParams?.query || "",
     category: searchParams?.category || "",
